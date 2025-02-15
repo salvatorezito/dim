@@ -1,12 +1,10 @@
 package it.pliot.dim_impl.data;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class IotAdapter {
+public class IotAdapterType {
     @Id
     private String id;
 
