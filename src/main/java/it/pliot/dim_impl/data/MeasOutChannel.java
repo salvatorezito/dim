@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class MeasureOutputChannel {
+public class MeasOutChannel {
 
 
     @Id
@@ -13,6 +13,22 @@ public class MeasureOutputChannel {
     private String name;
 
     private String clazz;
+
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    private String apiKey;
+
+    private String oauth2client;
+
+    private String oauth2secret;
 
     public String getId() {
         return id;

@@ -7,6 +7,8 @@ import java.util.concurrent.*;
 
 @Configuration
 public class ConfChannelService {
+
+
     @Bean
     public ExecutorService taskExecutor() {
         return new ThreadPoolExecutor(
@@ -19,3 +21,5 @@ public class ConfChannelService {
         );
     }
 }
+
+

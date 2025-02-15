@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class MeasureInputChannel {
+public class MeasInpChannel {
     @Id
     private String id;
 

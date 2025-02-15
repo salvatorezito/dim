@@ -1,10 +1,31 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="it">
 <head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout con Menu Laterale</title>
+    <link rel="stylesheet" href="css/dim.css">
 </head>
 <body>
-<p th:text="|Hello, ${name}!|" />
+<header>
+    <h1>Iot Device Bridge</h1>
+</header>
+<div class="container">
+    <nav class="sidebar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="/pipeline">Monitor Pipeline</a></li>
+            <li><a href="#">Aggiungi Source</a></li>
+            <li><a href="#">Gestisci Pipeline</a></li>
+        </ul>
+    </nav>
+    <main class="content">
+        <h2>Benvenuto!</h2>
+        <p>Questo è un semplice template HTML con un menu laterale, un header e un footer.</p>
+    </main>
+</div>
+<footer>
+    <p>&copy; 2025 Il Mio Sito - Tutti i diritti riservati</p>
+</footer>
 </body>
 </html>

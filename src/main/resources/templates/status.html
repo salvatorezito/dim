@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout con Menu Laterale</title>
+    <link rel="stylesheet" href="css/dim.css">
+</head>
+<body>
+<header>
+    <h1>Iot Device Bridge</h1>
+</header>
+<div class="container">
+    <nav class="sidebar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="/status">Monitor Pipeline</a></li>
+            <li><a href="#">Aggiungi Source</a></li>
+            <li><a href="#">Gestisci Pipeline</a></li>
+        </ul>
+    </nav>
+
+
+
+    <main class="content">
+        <table>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td> NAME</td>
+                    <td >Capacity</td>
+                    <td> Size </td>
+                    <td>lastInsert</td>
+                    <td>astPush</td>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr th:each="channel : ${channels}">
+                    <td th:text="${channel.id}"></td>
+                    <td th:text="${channel.name}"></td>
+                    <td th:text="${channel.capacity}"></td>
+                    <td th:text="${channel.size}"></td>
+                    <td th:text="${channel.lastInsert}"></td>
+                    <td th:text="${channel.lastPush}"></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</div>
+<footer>
+    <p>&copy; 2025 Il Mio Sito - Tutti i diritti riservati</p>
+</footer>
+</body>
+</html>
