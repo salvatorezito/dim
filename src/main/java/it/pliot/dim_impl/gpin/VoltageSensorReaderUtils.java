@@ -2,16 +2,13 @@ package it.pliot.dim_impl.gpin;
 
 import com.pi4j.Pi4J;
 import com.pi4j.context.Context;
-import com.pi4j.io.gpio.digital.DigitalInput;
-import com.pi4j.io.gpio.digital.DigitalInputConfig;
-import com.pi4j.io.gpio.digital.PullResistance;
 import com.pi4j.io.spi.Spi;
 import com.pi4j.io.spi.SpiBus;
 import com.pi4j.io.spi.SpiMode;
 
 import java.io.IOException;
 
-public class VoltageSensorReaderUtil {
+public class VoltageSensorReaderUtils {
 
     private static final int CHANNEL = 0; // Canale MCP3008
     private static final double VREF = 3.3; // Tensione di riferimento ADC
@@ -31,7 +28,7 @@ public class VoltageSensorReaderUtil {
                     .build());
 
             while (true) {
-                double voltage = readVoltage(spi, CHANNEL);
+                double voltage = readVoltage(spi, CHANNEL );
                 System.out.println("Tensione rilevata: " + voltage + "V");
                 Thread.sleep(1000);
             }
@@ -40,8 +37,8 @@ public class VoltageSensorReaderUtil {
         }
     }
 
-    private static double readVoltage(Spi spi) throws IOException {
-        byte[] request = new byte[]{(byte) (0x01), (byte) ((0x08 | SENSOR_ADDRESS) << 4), 0x00};
+    private static double readVoltage(Spi spi, int channel) throws IOException {
+        byte[] request = new byte[]{(byte) (0x01), (byte) ((0x08 | channel ) << 4), 0x00};
         byte[] response = new byte[3]; // Buffer per la risposta
 
         spi.transfer(request, response); // Scambio dati corretto

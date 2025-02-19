@@ -3,6 +3,7 @@ package it.pliot.dim_impl.channel.output;
 import it.pliot.dim_impl.channel.MeasureMsg;
 import it.pliot.dim_impl.conf.InitDim;
 import it.pliot.dim_impl.data.MeasOutChannel;
+import it.pliot.dim_impl.job.task.MockDavice;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -21,6 +22,7 @@ import java.util.concurrent.TimeUnit;
 public abstract class BaseOutputMessageChannel implements OutputChannel{
 
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(BaseOutputMessageChannel.class);
 
     private static final int BATCH_SIZE     = 30; // Numero massimo di messaggi per batch
     private static final int TIMEOUT_MS     = 20000; // Timeout massimo per batch

@@ -17,7 +17,7 @@ import java.util.concurrent.ExecutorService;
 
 public class HttpOutputChannel extends BaseOutputMessageChannel {
 
-    private static final Logger logger = LoggerFactory.getLogger(HttpOutputChannel.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(HttpOutputChannel.class);
 
     private RestTemplate restTemplate;
     private String url;
@@ -27,14 +27,14 @@ public class HttpOutputChannel extends BaseOutputMessageChannel {
         this.restTemplate = restTemplateBuilder.connectTimeout( Duration.ofSeconds( 10 ) )
                 .build();
         this.url = conf.getUrl();
-        logger.info( " created a Channel to " + this.url );
+        LOGGER.info( " created a Channel to " + this.url );
 
     }
 
 
     @Override
     public void sendBatch(List<MeasureMsg> batch) {
-        logger.info( " send ");
+        LOGGER.info( " send ");
         HttpHeaders headers = new HttpHeaders();
         headers.set("Content-type", "application/json;charset=UTF-8");
 
@@ -42,7 +42,7 @@ public class HttpOutputChannel extends BaseOutputMessageChannel {
                 url,
                 batch,
                 ResponseEntity.class);
-        logger.info( " sent result " + o );
+        LOGGER.info( "  result sent " + o );
 
     }
 
