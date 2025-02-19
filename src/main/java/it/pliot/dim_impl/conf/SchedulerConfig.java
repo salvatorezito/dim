@@ -8,6 +8,7 @@ import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 import java.util.concurrent.*;
 
 public class SchedulerConfig implements SchedulingConfigurer {
+
     private final int POOL_SIZE = 10;
 
     @Override
@@ -16,7 +17,6 @@ public class SchedulerConfig implements SchedulingConfigurer {
         threadPoolTaskScheduler.setPoolSize(POOL_SIZE);
         threadPoolTaskScheduler.setThreadNamePrefix("pliot-scheduled-task-pool-");
         threadPoolTaskScheduler.initialize();
-
         scheduledTaskRegistrar.setTaskScheduler(threadPoolTaskScheduler);
     }
 

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout con Menu Laterale</title>
+    <link rel="stylesheet" href="css/dim.css">
+</head>
+<body>
+<header>
+    <h1>Iot Device Bridge</h1>
+</header>
+<div class="container">
+
+    <nav class="sidebar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="/status">Monitor Pipeline</a></li>
+            <li><a href="/test_pin">Test PIN</a></li>
+            <li><a href="/simulator">Device Simulator</a></li>
+            <li><a href="#">Gestisci Pipeline</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <h2>Benvenuto!</h2>
+        <form action="/simulator" method="POST">
+            <table>
+                <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>NAME</td>
+
+                </tr>
+
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Pin
+                        </td>
+                        <td>
+                            <input type="text" name="pin" th:value="${pin}">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="Submit">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           Result
+                        </td>
+                        <td th:text="| Result ${result} |">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </form>
+    </main>
+</div>
+<footer>
+    <p>&copy; 2025 Il Mio Sito - Tutti i diritti riservati</p>
+</footer>
+</body>
+</html>
