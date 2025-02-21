@@ -34,7 +34,7 @@ public class GlobalConfiguration {
         return idEquipment;
     }
 
-    private String initEquipent() {
+    private String initEquipent() { 
         String id = UUID.randomUUID().toString();
         GatewayConf conf = new GatewayConf();
         conf.setIdEquipment( id );

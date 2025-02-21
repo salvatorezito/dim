@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,7 @@
     <h1>Iot Device Bridge</h1>
 </header>
 <div class="container">
+    <div th:insert="{commmon/menu :: menu}">
     <nav class="sidebar">
         <ul>
             <li><a href="#">Home</a></li>
@@ -24,8 +25,8 @@
         <p>Questo è un semplice template HTML con un menu laterale, un header e un footer.</p>
     </main>
 </div>
-<footer>
+<menu>
     <p>&copy; 2025 Il Mio Sito - Tutti i diritti riservati</p>
-</footer>
+</menu>
 </body>
 </html>
