@@ -6,16 +6,27 @@ import java.util.UUID;
 
 public class MeasureMsg implements Serializable  {
 
-    public MeasureMsg(String idEquipment, String idSensor , String val , Date d){
+    public MeasureMsg(String idEquipment, String idSensor , String val , Date d , String tenantId){
         srcId = UUID.randomUUID().toString();
         this.sensorId = idSensor;
         this.val = val;
         this.mesure_dttm = d;
+        this.tenantId = tenantId;
+        this.equipmentId = idEquipment;
+    }
+    private String tenantId;
+
+    public String getTenantId() {
+        return tenantId;
+    }
+
+    public void setTenantId(String tenantId) {
+        this.tenantId = tenantId;
     }
 
     private String srcId;
 
-    private String idEquipment;
+    private String equipmentId;
 
     private String sensorId;
 
@@ -29,12 +40,12 @@ public class MeasureMsg implements Serializable  {
         this.srcId = srcId;
     }
 
-    public String getIdEquipment() {
-        return idEquipment;
+    public String getEquipmentId() {
+        return equipmentId;
     }
 
-    public void setIdEquipment(String idEquipment) {
-        this.idEquipment = idEquipment;
+    public void setEquipmentId(String equipmentId) {
+        this.equipmentId = equipmentId;
     }
 
 

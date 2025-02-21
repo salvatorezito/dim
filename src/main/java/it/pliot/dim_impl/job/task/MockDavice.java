@@ -15,18 +15,20 @@ public class MockDavice implements Runnable {
     private OutputChannel output;
     private String idEquipment;
     private String idSensor;
+    private String idTenant;
 
-    public MockDavice( OutputChannel output  , String idEquipment , String idSensor ){
+    public MockDavice( OutputChannel output  , String idEquipment , String idSensor , String idTenant ){
         this.output = output;
         this.idEquipment = idEquipment;
         this.idSensor = idSensor;
+        this.idTenant = idTenant;
     }
 
 
     @Override
     public void run() {
         log.info(" new measure ");
-        MeasureMsg msg = new MeasureMsg( idEquipment , idSensor , "4" , new Date() );
+        MeasureMsg msg = new MeasureMsg( idEquipment , idSensor , "4" , new Date() , idTenant );
         output.produce( msg );
     }
 }

@@ -34,12 +34,18 @@ public class GlobalConfiguration {
         return idEquipment;
     }
 
-    private String initEquipent() { 
+    public String getTenantId() {
+        return tenantId;
+    }
+
+    private String initEquipent() {
         String id = UUID.randomUUID().toString();
         GatewayConf conf = new GatewayConf();
         conf.setIdEquipment( id );
         conf = gatewayConfRepository.save( conf );
         return conf.getIdEquipment();
     }
+
+    private String tenantId = UUID.randomUUID().toString();
 
 }

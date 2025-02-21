@@ -7,6 +7,7 @@ import it.pliot.dim_impl.channel.output.BaseOutputMessageChannel;
 import it.pliot.dim_impl.channel.MeasureMsg;
 import it.pliot.dim_impl.channel.output.OutputChannel;
 import it.pliot.dim_impl.channel.output.OutputChannelInfo;
+import it.pliot.dim_impl.conf.GlobalConfiguration;
 import it.pliot.dim_impl.job.MemoryMonitor;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
@@ -27,6 +28,9 @@ public class BaseController {
 
     private static final Logger log = LoggerFactory.getLogger(BaseController.class);
 
+    @Autowired
+    GlobalConfiguration globalConfiguration;
+
 
     @GetMapping("/greeting")
     public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
@@ -43,7 +47,9 @@ public class BaseController {
         OutputChannel edgeChannel = channelFactory.getChannel( "HTTP_EDGE_CHANNEL");
         if ( edgeChannel == null )
             log.info( " channel not found " + edgeChannel );
-        edgeChannel.produce(new MeasureMsg( "1" , "1" , "23" , new Date() ) );
+        edgeChannel.produce(
+                new MeasureMsg( "1" , "1" , "23" , new Date() , globalConfiguration.getTenantId() )
+        );
         return "confirmmessage";
     }
 

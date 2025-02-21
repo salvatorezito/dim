@@ -22,7 +22,10 @@ public class DeviceReaderFactory {
     public  Runnable reader( String sensorId   ){
 
         OutputChannel httpChannel = channelFactory.getChannel( "HTTP_EDGE_CHANNEL");
-        return new MockDavice( httpChannel  , globalConfiguration.getIdEquipment() , sensorId );
+        return new MockDavice( httpChannel  ,
+                            globalConfiguration.getIdEquipment() ,
+                            sensorId ,
+                            globalConfiguration.getTenantId() );
 
     }
 }
