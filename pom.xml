@@ -21,12 +21,23 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <pi4j.version>2.3.0</pi4j.version>
+        <thymeleaf-extras.version>3.1.1.RELEASE</thymeleaf-extras.version>
     </properties>
 
         <dependencies>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>org.thymeleaf.extras</groupId>
+                <artifactId>thymeleaf-extras-springsecurity6</artifactId>
+                <!-- Temporary explicit version to fix Thymeleaf bug -->
+                <version>${thymeleaf-extras.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>

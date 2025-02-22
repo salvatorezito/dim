@@ -3,6 +3,9 @@ package it.pliot.dim_impl.conf;
 import it.pliot.dim_impl.channel.output.HttpOutputChannel;
 import it.pliot.dim_impl.data.IotAdapterType;
 import it.pliot.dim_impl.data.SignalChannel;
+import it.pliot.dim_impl.data.UserCredentials;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,5 +57,17 @@ public class Instances {
     private static SignalChannel createSenderType(String number, String adapterUno, String classe) {
         SignalChannel config = new SignalChannel();
         return  config;
+    }
+
+    public static UserCredentials createAdmin() {
+        UserCredentials admin = new UserCredentials();
+        PasswordEncoder passwordEncoder =
+                PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        admin.setUserName("admin");
+        admin.setPassword( passwordEncoder.encode( "password") );
+        admin.setEnabled( true );
+        admin.setExpired( false );
+        admin.setLocked( false );
+        return  admin;
     }
 }
