@@ -2,7 +2,7 @@ package it.pliot.dim_impl.conf;
 
 import it.pliot.dim_impl.channel.output.HttpOutputChannel;
 import it.pliot.dim_impl.data.IotAdapterType;
-import it.pliot.dim_impl.data.MeasOutChannel;
+import it.pliot.dim_impl.data.SignalChannel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +16,8 @@ public class Instances {
         return  elenco;
     }
 
-    public static List<MeasOutChannel> initMeasOutChannel(){
-        List<MeasOutChannel> elenco = new ArrayList<>();
+    public static List<SignalChannel> initMeasOutChannel(){
+        List<SignalChannel> elenco = new ArrayList<>();
         elenco.add( createMeasOutChannelInstance( "HTTP_EDGE_CHANNEL" ,
                                                 "Http Vs Edge" ,
                                                 HttpOutputChannel.class,
@@ -34,8 +34,8 @@ public class Instances {
 
     }
 
-    private static MeasOutChannel createMeasOutChannelInstance(String id , String name, Class clazz , String url  ){
-        MeasOutChannel a = new MeasOutChannel();
+    private static SignalChannel createMeasOutChannelInstance(String id , String name, Class clazz , String url  ){
+        SignalChannel a = new SignalChannel();
         a.setId( id ) ;
         a.setClazz( clazz.getName() );
         a.setName( name );
@@ -44,15 +44,15 @@ public class Instances {
 
     }
 
-    public static List<MeasOutChannel> defaultSenderType(){
-        List<MeasOutChannel> elenco = new ArrayList<MeasOutChannel>();
+    public static List<SignalChannel> defaultSenderType(){
+        List<SignalChannel> elenco = new ArrayList<SignalChannel>();
         elenco.add( createSenderType("01" , "Http" , "classe") );
 
         return  elenco;
     }
 
-    private static MeasOutChannel createSenderType(String number, String adapterUno, String classe) {
-        MeasOutChannel config = new MeasOutChannel();
+    private static SignalChannel createSenderType(String number, String adapterUno, String classe) {
+        SignalChannel config = new SignalChannel();
         return  config;
     }
 }

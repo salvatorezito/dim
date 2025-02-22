@@ -1,8 +1,7 @@
 package it.pliot.dim_impl.channel;
 
-import it.pliot.dim_impl.channel.output.HttpOutputChannel;
 import it.pliot.dim_impl.channel.output.OutputChannel;
-import it.pliot.dim_impl.data.MeasOutChannel;
+import it.pliot.dim_impl.data.SignalChannel;
 import it.pliot.dim_impl.repository.MeasOutChannelRepository;
 import jakarta.annotation.PostConstruct;
 import jakarta.transaction.Transactional;
@@ -12,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 
@@ -34,7 +32,7 @@ public class OutputChannelFactory {
 
     private Map<String,OutputChannel> IN_MEMORY_CHANNELS = new HashMap<String,OutputChannel>();
 
-    private void initChannel(MeasOutChannel x) {
+    private void initChannel(SignalChannel x) {
         Class jobTypeClass = null;
 
         if ( IN_MEMORY_CHANNELS.containsKey( x.getId() ) ) {
@@ -57,8 +55,8 @@ public class OutputChannelFactory {
     @Transactional
     @PostConstruct
     public void loadChannels(){
-       List<MeasOutChannel> outChannel =  repo.findAll();
-       Iterator<MeasOutChannel> itera = outChannel.stream().iterator();
+       List<SignalChannel> outChannel =  repo.findAll();
+       Iterator<SignalChannel> itera = outChannel.stream().iterator();
        while( itera.hasNext() ) {
            initChannel(itera.next());
        }

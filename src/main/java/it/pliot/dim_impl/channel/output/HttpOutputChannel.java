@@ -1,7 +1,7 @@
 package it.pliot.dim_impl.channel.output;
 
 import it.pliot.dim_impl.channel.MeasureMsg;
-import it.pliot.dim_impl.data.MeasOutChannel;
+import it.pliot.dim_impl.data.SignalChannel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -22,7 +22,7 @@ public class HttpOutputChannel extends BaseOutputMessageChannel {
     private RestTemplate restTemplate;
     private String url;
 
-    protected void init0(ApplicationContext context , MeasOutChannel conf , ExecutorService executorService ){
+    protected void init0(ApplicationContext context , SignalChannel conf , ExecutorService executorService ){
         RestTemplateBuilder restTemplateBuilder = ( RestTemplateBuilder ) context.getBean(RestTemplateBuilder.class);
         this.restTemplate = restTemplateBuilder.connectTimeout( Duration.ofSeconds( 10 ) )
                 .build();

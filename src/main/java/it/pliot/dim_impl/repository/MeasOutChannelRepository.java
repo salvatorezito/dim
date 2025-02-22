@@ -1,10 +1,9 @@
 package it.pliot.dim_impl.repository;
 
-import it.pliot.dim_impl.data.IotAdapterType;
-import it.pliot.dim_impl.data.MeasOutChannel;
+import it.pliot.dim_impl.data.SignalChannel;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 @Transactional
-public interface MeasOutChannelRepository extends JpaRepository<MeasOutChannel, String> {
+public interface MeasOutChannelRepository extends JpaRepository<SignalChannel, String> {
 }

@@ -8,25 +8,15 @@
 </head>
 <body>
 <header>
-    <h1>Iot Device Bridge</h1>
+    <div th:insert="common/header :: header" ></div>
 </header>
 <div class="container">
-    <div th:insert="{commmon/menu :: menu}">
-    <nav class="sidebar">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="/pipeline">Monitor Pipeline</a></li>
-            <li><a href="#">Aggiungi Source</a></li>
-            <li><a href="#">Gestisci Pipeline</a></li>
-        </ul>
-    </nav>
+    <div th:insert="common/menu :: menu" >
+    </div>
     <main class="content">
         <h2>Benvenuto!</h2>
-        <p>Questo è un semplice template HTML con un menu laterale, un header e un footer.</p>
     </main>
 </div>
-<menu>
-    <p>&copy; 2025 Il Mio Sito - Tutti i diritti riservati</p>
-</menu>
+
 </body>
 </html>

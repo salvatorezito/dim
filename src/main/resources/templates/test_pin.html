@@ -7,18 +7,15 @@
     <link rel="stylesheet" href="css/dim.css">
 </head>
 <body>
+
 <header>
-    <h1>Iot Device Bridge</h1>
+    <div th:insert="common/header :: header" ></div>
 </header>
+
 <div class="container">
-    <nav class="sidebar">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="/status">Monitor Pipeline</a></li>
-            <li><a href="/test_pin">Test PIN</a></li>
-            <li><a href="#">Gestisci Pipeline</a></li>
-        </ul>
-    </nav>
+    <div th:insert="common/menu :: menu" >
+    </div>
+
     <main class="content">
         <h2>Benvenuto!</h2>
         <form action="/test_pin" method="POST">

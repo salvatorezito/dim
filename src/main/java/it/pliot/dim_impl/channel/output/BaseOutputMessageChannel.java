@@ -2,13 +2,10 @@ package it.pliot.dim_impl.channel.output;
 
 import it.pliot.dim_impl.channel.MeasureMsg;
 import it.pliot.dim_impl.conf.InitDim;
-import it.pliot.dim_impl.data.MeasOutChannel;
-import it.pliot.dim_impl.job.task.MockDavice;
+import it.pliot.dim_impl.data.SignalChannel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.ApplicationContext;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -37,7 +34,7 @@ public abstract class BaseOutputMessageChannel implements OutputChannel{
     private String name;
 
 
-    public final void init(ApplicationContext context , MeasOutChannel conf , ExecutorService executorService ){
+    public final void init(ApplicationContext context , SignalChannel conf , ExecutorService executorService ){
         this.executorService = executorService;
         id = conf.getId();
         this.name = conf.getName();
@@ -45,7 +42,7 @@ public abstract class BaseOutputMessageChannel implements OutputChannel{
         init0( context , conf , executorService );
     }
 
-    protected abstract void init0(ApplicationContext context, MeasOutChannel conf, ExecutorService executorService);
+    protected abstract void init0(ApplicationContext context, SignalChannel conf, ExecutorService executorService);
 
     // Metodo per produrre messaggi nella queue
     public void produce(MeasureMsg message) {

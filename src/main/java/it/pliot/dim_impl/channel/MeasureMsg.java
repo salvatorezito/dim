@@ -8,7 +8,7 @@ public class MeasureMsg implements Serializable  {
 
     public MeasureMsg(String idEquipment, String idSensor , String val , Date d , String tenantId){
         srcId = UUID.randomUUID().toString();
-        this.sensorId = idSensor;
+        this.signalId = idSensor;
         this.val = val;
         this.mesure_dttm = d;
         this.tenantId = tenantId;
@@ -28,7 +28,7 @@ public class MeasureMsg implements Serializable  {
 
     private String equipmentId;
 
-    private String sensorId;
+    private String signalId;
 
     private String val;
 
@@ -49,12 +49,12 @@ public class MeasureMsg implements Serializable  {
     }
 
 
-    public String getSensorId() {
-        return sensorId;
+    public String getSignalId() {
+        return signalId;
     }
 
-    public void setSensorId(String sensorId) {
-        this.sensorId = sensorId;
+    public void setSignalId(String signalId) {
+        this.signalId = signalId;
     }
 
     public String getVal() {
