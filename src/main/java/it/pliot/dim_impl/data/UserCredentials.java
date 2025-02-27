@@ -80,7 +80,7 @@ public class UserCredentials implements UserDetails {
 
     @Override
     public String getUsername() {
-        return "";
+        return userName;
     }
 
     @Override

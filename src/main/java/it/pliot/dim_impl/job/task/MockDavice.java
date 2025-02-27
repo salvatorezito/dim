@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Date;
+import java.util.Random;
 
 public class MockDavice implements Runnable {
 
@@ -28,7 +29,10 @@ public class MockDavice implements Runnable {
     @Override
     public void run() {
         log.info(" new measure ");
-        MeasureMsg msg = new MeasureMsg( idEquipment , idSensor , "4" , new Date() , idTenant );
+        Date d = new Date();
+        long time = d.getTime();
+        long value = ( time / 60 ) % 150;
+        MeasureMsg msg = new MeasureMsg( idEquipment , idSensor , Long.toString( value ) , new Date() , idTenant );
         output.produce( msg );
     }
 }

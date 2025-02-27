@@ -29,7 +29,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         uc.setUserName( username );
         Example<UserCredentials> example = Example.of( uc );
         Optional<UserCredentials> element = userCredentialRepository.findOne(  example );
-        if (element.isEmpty()  )
+        if ( element.isEmpty()  )
             throw new UsernameNotFoundException( "user " + username + " not found ");
         return element.get();
 

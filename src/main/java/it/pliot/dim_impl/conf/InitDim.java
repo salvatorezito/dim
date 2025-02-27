@@ -44,7 +44,9 @@ public class InitDim {
 
         UserCredentials c = Instances.createAdmin();
         try {
-            UserDetails details = userDetailService.loadUserByUsername(c.getUsername());
+
+            UserDetails details = userDetailService.loadUserByUsername( c.getUsername() );
+
         }catch ( UsernameNotFoundException e ){
             log.info( " init admin ");
             userCredentialRepository.save( c );
