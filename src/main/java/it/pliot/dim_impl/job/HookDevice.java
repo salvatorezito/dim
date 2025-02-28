@@ -53,8 +53,8 @@ public class HookDevice {
         this.taskScheduler.initialize();
     }
 
-    public void scheduleJob( String jobName , String cronExpression) {
-        Runnable task = deviceReader.reader( jobName );
+    public void scheduleJob( String jobName , String signalId , int rate,  String cronExpression) {
+        Runnable task = deviceReader.reader( signalId , rate );
         taskScheduler.schedule( task , new CronTrigger(cronExpression));
         jobSchedules.put( jobName, cronExpression);
         System.out.println("Job " + jobName + " schedulato con cron: " + cronExpression);

@@ -27,10 +27,17 @@ public class DeviceSimulator {
     }
 
     @PostMapping("/simulator")
-    public String simulatorStart( @RequestParam(name="cmd", required=false, defaultValue="start") String name,
+    public String simulatorStart( @RequestParam(name="idsignal", required=false, defaultValue="test") String name,
+                                  @RequestParam(name="randomval", required=false, defaultValue="150") String rate,
                                   Model model) {
+        int rateValue = 150;
+        try{
+            rateValue =  Integer.parseInt( rate );
+        }catch ( Exception  e ){
+            e.printStackTrace();
+        }
         model.addAttribute("msg" , "Started");
-        hookDevice.scheduleJob( "test" , "*/5 * * * * *" );
+        hookDevice.scheduleJob( name , name,  rateValue ,"*/5 * * * * *" );
         return "device_simulator";
     }
 

@@ -19,13 +19,14 @@ public class DeviceReaderFactory {
 
 
 
-    public  Runnable reader( String sensorId   ){
+    public  Runnable reader( String sensorId , int rate  ){
 
         OutputChannel httpChannel = channelFactory.getChannel( "HTTP_EDGE_CHANNEL");
         return new MockDavice( httpChannel  ,
                             globalConfiguration.getIdEquipment() ,
                             sensorId ,
-                            globalConfiguration.getTenantId() );
+                            globalConfiguration.getTenantId()
+                            , rate);
 
     }
 }

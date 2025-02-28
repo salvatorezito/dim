@@ -18,20 +18,25 @@ public class MockDavice implements Runnable {
     private String idSensor;
     private String idTenant;
 
+    private int coeffVar;
+
     public MockDavice( OutputChannel output  , String idEquipment , String idSensor , String idTenant ){
+       this( output,idEquipment,idSensor,idTenant , 150 );
+    }
+    public MockDavice( OutputChannel output  , String idEquipment , String idSensor , String idTenant , int coeffVar ){
         this.output = output;
         this.idEquipment = idEquipment;
         this.idSensor = idSensor;
         this.idTenant = idTenant;
+        this.coeffVar = coeffVar;
     }
-
 
     @Override
     public void run() {
         log.info(" new measure ");
         Date d = new Date();
         long time = d.getTime();
-        long value = ( time / 60 ) % 150;
+        long value = ( time / 60 ) % coeffVar;
         MeasureMsg msg = new MeasureMsg( idEquipment , idSensor , Long.toString( value ) , new Date() , idTenant );
         output.produce( msg );
     }
