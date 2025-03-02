@@ -10,7 +10,7 @@ public class MeasureMsg implements Serializable  {
         srcId = UUID.randomUUID().toString();
         this.signalId = idSensor;
         this.val = val;
-        this.mesure_dttm = d;
+        this.measureDttm = d;
         this.tenantId = tenantId;
         this.equipmentId = idEquipment;
     }
@@ -65,15 +65,15 @@ public class MeasureMsg implements Serializable  {
         this.val = val;
     }
 
-    public Date getMesure_dttm() {
-        return mesure_dttm;
+    public Date getMeasureDttm() {
+        return measureDttm;
     }
 
-    public void setMesure_dttm(Date mesure_dttm) {
-        this.mesure_dttm = mesure_dttm;
+    public void setMeasureDttm(Date measureDttm) {
+        this.measureDttm = measureDttm;
     }
 
-    private Date mesure_dttm;
+    private Date measureDttm    ;
 
 
 }
