@@ -49,7 +49,7 @@ public class BaseController {
         if ( edgeChannel == null )
             log.info( " channel not found " + edgeChannel );
         edgeChannel.produce(
-                new MeasureMsg( "1" , "1" , "23" , new Date() , globalConfiguration.getTenantId() )
+                new MeasureMsg( "1" , "1" , "23" , new Date() , globalConfiguration.getTenantId() , "signalId"  )
         );
         return "confirmmessage";
     }

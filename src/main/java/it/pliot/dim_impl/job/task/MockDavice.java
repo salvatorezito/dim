@@ -37,7 +37,7 @@ public class MockDavice implements Runnable {
         Date d = new Date();
         long time = d.getTime();
         long value = ( time / 60 ) % coeffVar;
-        MeasureMsg msg = new MeasureMsg( idEquipment , idSensor , Long.toString( value ) , new Date() , idTenant );
+        MeasureMsg msg = new MeasureMsg( idEquipment , idSensor , Long.toString( value ) , new Date() , idTenant , idSensor);
         output.produce( msg );
     }
 }

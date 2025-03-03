@@ -6,13 +6,14 @@ import java.util.UUID;
 
 public class MeasureMsg implements Serializable  {
 
-    public MeasureMsg(String idEquipment, String idSensor , String val , Date d , String tenantId){
+    public MeasureMsg(String idEquipment, String idSensor , String val , Date d , String tenantId , String signalId){
         srcId = UUID.randomUUID().toString();
         this.signalId = idSensor;
         this.val = val;
         this.measureDttm = d;
         this.tenantId = tenantId;
         this.equipmentId = idEquipment;
+        this.signalId = signalId;
     }
     private String tenantId;
 
